@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "@babel/proposal-export-default-from"
+  ],
+  "env": {
+    "cjs": {
+      "presets": [
+        ["@babel/env", {"loose": true}]
+      ]
+    },
+    "es": {
+      "presets": [
+        ["@babel/env", {"loose": true, "modules": false}]
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@jaredlunde/react-null",
+  "version": "1.0.1",
+  "description": "A reusable null-rendering component",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "esnext": "es/index.js",
+  "repository": "http://github.com/jaredLunde/react-null",
+  "author": "Jared Lunde",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "cross-env": "^5.2.0",
+    "prettier": "^1.14.2"
+  },
+  "scripts": {
+    "build": "yarn run build:es && yarn run build:cjs",
+    "build:es": "rm -rf es && cross-env BABEL_ENV=es babel src --out-dir es && npm run prettier:es",
+    "build:cjs": "rm -rf cjs && cross-env BABEL_ENV=cjs babel src --out-dir cjs && npm run prettier:cjs",
+    "build-pub": "yarn run build && yarn publish --access public",
+    "edit": "atom ./",
+    "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"es/**/*.js\"",
+    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"cjs/**/*.js\""
+  }
+}
